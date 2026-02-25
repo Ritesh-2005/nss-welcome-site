@@ -10,7 +10,7 @@ function App() {
       {!submitted ? (
         <div style={styles.card}>
           <h1>Welcome to NSS Family 🎉</h1>
-          <p>Not Me, But You ❤️</p>
+          <p>Once a volunteer always a volunteer</p>
 
           <input
             type="text"
