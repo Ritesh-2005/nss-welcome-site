@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Confetti from "react-confetti";
-import bgImage from "./photo.png"
-// import bgImage from "src/photo.png"; // <-- put your collage image here
+import bgImage from "./photo.jpg";
 
 function App() {
   const [name, setName] = useState("");
@@ -27,10 +26,7 @@ function App() {
     if (!name.trim()) return;
     setSubmitted(true);
     setShowConfetti(true);
-
-    setTimeout(() => {
-      setShowConfetti(false);
-    }, 4000);
+    setTimeout(() => setShowConfetti(false), 8000);
   };
 
   return (
@@ -40,28 +36,26 @@ function App() {
       )}
 
       {!submitted ? (
-        <div style={styles.card}>
-          <h1 style={styles.title}>Welcome to NSS Family 🎉</h1>
-          <h2 style={styles.motto}>"Not Me, But You."</h2>
-          <p style={styles.subtitle}>
-            Once a volunteer, always a volunteer.
-          </p>
+        <div style={styles.heroSection}>
+          <div style={styles.heroContent}>
+            <h1 style={styles.title}>Welcome to NSS Family</h1>
+            <p style={styles.motto}>Not Me, But You.</p>
 
-          <input
-            type="text"
-            placeholder="Enter your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            style={styles.input}
-          />
+            <input
+              type="text"
+              placeholder="Enter your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={styles.input}
+            />
 
-          <button onClick={handleSubmit} style={styles.button}>
-            Begin My Journey 🚀
-          </button>
+            <button onClick={handleSubmit} style={styles.button}>
+              Begin My Journey
+            </button>
+          </div>
         </div>
       ) : (
         <div style={styles.fullScreenWrapper}>
-          {/* Background Image */}
           <div
             style={{
               ...styles.backgroundImage,
@@ -69,29 +63,26 @@ function App() {
             }}
           />
 
-          {/* Overlay */}
           <div style={styles.overlay} />
 
-          {/* Content */}
-          <div style={styles.welcomeContent}>
+          <div style={styles.overlayText}>
             <h1 style={styles.welcomeTitle}>
-              Welcome, {name}! 🎉
+              Welcome,{" "}
+              <span style={styles.nameHighlight}>{name}</span>
             </h1>
 
             <p style={styles.welcomeText}>
-              You are now an official NSS Volunteer.
-              <br />
-              You didn’t just join a group —
-              <strong> you joined a movement.</strong>
+              You are now part of something meaningful.
+            </p>
+
+            <p style={styles.welcomeText}>
+              This is not just volunteering —
+              <span style={styles.movement}> it is impact.</span>
             </p>
 
             <h2 style={styles.welcomeMotto}>
               Once a volunteer, always a volunteer.
             </h2>
-
-            <p style={styles.welcomeText}>
-              Your journey of service, leadership, and impact begins today.
-            </p>
           </div>
         </div>
       )}
@@ -101,68 +92,76 @@ function App() {
 
 const styles = {
   container: {
+    width: "100vw",
     height: "100vh",
+    margin: 0,
+    padding: 0,
+    fontFamily: "'Segoe UI', sans-serif",
+    overflow: "hidden",
+    background: `
+      radial-gradient(circle at 20% 25%, rgba(255,77,77,0.4), transparent 40%),
+      radial-gradient(circle at 80% 75%, rgba(0,230,118,0.35), transparent 40%),
+      linear-gradient(135deg, #141e30, #243b55)
+    `,
+  },
+
+  /* FIRST PAGE */
+
+  heroSection: {
+    width: "100%",
+    height: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #11998e, #38ef7d)",
-    fontFamily: "'Segoe UI', sans-serif",
   },
 
-  card: {
-    background: "white",
-    padding: "45px",
-    borderRadius: "20px",
+  heroContent: {
     textAlign: "center",
-    width: "360px",
-    boxShadow: "0 20px 50px rgba(0,0,0,0.2)",
   },
 
   title: {
-    marginBottom: "10px",
+    fontSize: "clamp(38px, 6vw, 64px)",
+    fontWeight: "800",
+    marginBottom: "15px",
+    background: "linear-gradient(45deg, #ffffff, #ff7676)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
   },
 
   motto: {
-    color: "#11998e",
-    marginBottom: "10px",
-  },
-
-  subtitle: {
-    fontSize: "14px",
-    marginBottom: "20px",
-    color: "#555",
+    fontSize: "clamp(18px, 3vw, 24px)",
+    marginBottom: "40px",
+    color: "#e0e0e0",
   },
 
   input: {
-    padding: "12px",
-    width: "100%",
-    borderRadius: "10px",
-    border: "1px solid #ddd",
-    marginTop: "10px",
-    marginBottom: "15px",
-    outline: "none",
+    padding: "16px",
+    width: "320px",
+    maxWidth: "90%",
+    borderRadius: "50px",
+    border: "none",
+    marginBottom: "25px",
+    fontSize: "16px",
+    textAlign: "center",
   },
 
   button: {
-    padding: "12px",
-    width: "100%",
-    borderRadius: "10px",
+    padding: "16px 45px",
+    borderRadius: "50px",
     border: "none",
-    backgroundColor: "#11998e",
+    background: "linear-gradient(45deg, #ff4d4d, #ff9966)",
     color: "white",
     fontWeight: "bold",
+    fontSize: "17px",
     cursor: "pointer",
-    transition: "0.3s ease",
+    boxShadow: "0 10px 30px rgba(255,77,77,0.4)",
   },
+
+  /* SECOND PAGE */
 
   fullScreenWrapper: {
     position: "fixed",
     inset: 0,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    color: "white",
   },
 
   backgroundImage: {
@@ -170,37 +169,67 @@ const styles = {
     inset: 0,
     backgroundSize: "cover",
     backgroundPosition: "center",
-    animation: "zoomEffect 20s ease-in-out infinite alternate",
+    backgroundRepeat: "no-repeat",
+    animation: "zoomEffect 35s ease-in-out infinite alternate",
   },
 
   overlay: {
     position: "absolute",
     inset: 0,
-    background:
-      "linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85))",
+    background: `
+      linear-gradient(
+        90deg,
+        rgba(15,15,25,0.85) 0%,
+        rgba(15,15,25,0.6) 40%,
+        rgba(15,15,25,0.25) 70%,
+        rgba(15,15,25,0.05) 100%
+      )
+    `,
   },
 
-  welcomeContent: {
+  overlayText: {
     position: "relative",
-    maxWidth: "600px",
-    padding: "30px",
+    width: "55%",
+    maxWidth: "750px",
+    marginLeft: "8%",
+    marginTop: "14%",
+    color: "#f2f2f2",
   },
 
   welcomeTitle: {
-    fontSize: "38px",
-    marginBottom: "20px",
+    fontSize: "clamp(48px, 6vw, 76px)",
+    fontWeight: "900",
+    marginBottom: "28px",
+    lineHeight: "1.1",
+    letterSpacing: "1px",
+    textShadow: "0 10px 40px rgba(0,0,0,0.8)",
+  },
+
+  nameHighlight: {
+    color: "#e6d3a3",
+    textShadow: "0 0 30px rgba(230,211,163,0.6)",
   },
 
   welcomeText: {
-    fontSize: "18px",
-    lineHeight: "1.6",
-    marginBottom: "20px",
+    fontSize: "clamp(20px, 2.5vw, 26px)",
+    lineHeight: "1.8",
+    marginBottom: "18px",
+    color: "#e5e5e5",
+    textShadow: "0 6px 25px rgba(0,0,0,0.7)",
+  },
+
+  movement: {
+    fontWeight: "bold",
+    color: "#cfd8dc",
   },
 
   welcomeMotto: {
-    fontSize: "22px",
-    marginBottom: "20px",
-    color: "#38ef7d",
+    fontSize: "clamp(22px, 3vw, 30px)",
+    marginTop: "30px",
+    fontWeight: "600",
+    letterSpacing: "1px",
+    color: "#f5f5f5",
+    textShadow: "0 6px 30px rgba(0,0,0,0.8)",
   },
 };
 
