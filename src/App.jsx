@@ -74,21 +74,17 @@ function App() {
             </h1>
 
             <p style={styles.welcomeText}>
-              You are now part of something meaningful.
+              You are now part of something meaningful and impactful.
+              It's an opportunity to grow, inspire and create a change.
+              Through NSS, you will serve, learn, and transform lives - including your own.<br></br>
+              {/* You're journey of Service begins today, let your small steps create a 
+              big impact on society.
+              Let us work together to build a better and responsible nation. */}
             </p>
 
-            <p style={styles.welcomeText}>
-              This is not just volunteering —
-              <span style={styles.movement}> it is impact.</span>
+            <p>
+               
             </p>
-
-            <h3 style={styles.welcomeMotto}>
-              Once a volunteer, always a volunteer.
-            </h3>
-
-            <h2 style={styles.bigImpact}>
-              Your small step can make a big impact
-            </h2>
           </div>
         </div>
       )}
