@@ -56,6 +56,7 @@ function App() {
         </div>
       ) : (
         <div style={styles.fullScreenWrapper}>
+          {/* FIXED FULL SCREEN BACKGROUND */}
           <div
             style={{
               ...styles.backgroundImage,
@@ -98,7 +99,7 @@ function App() {
 const styles = {
   container: {
     width: "100vw",
-    height: "100vh",
+    height: "100dvh", // 🔥 FIXED
     margin: 0,
     padding: 0,
     fontFamily: "'Segoe UI', sans-serif",
@@ -166,20 +167,27 @@ const styles = {
 
   fullScreenWrapper: {
     position: "fixed",
-    inset: 0,
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100dvh", // 🔥 FIXED
   },
 
   backgroundImage: {
-    position: "absolute",
-    inset: 0,
+    position: "fixed", // 🔥 changed from absolute
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100dvh",
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
     animation: "zoomEffect 35s ease-in-out infinite alternate",
+    zIndex: -2,
   },
 
   overlay: {
-    position: "absolute",
+    position: "fixed",
     inset: 0,
     background: `
       linear-gradient(
@@ -190,6 +198,7 @@ const styles = {
         rgba(15,15,25,0.05) 100%
       )
     `,
+    zIndex: -1,
   },
 
   overlayText: {
