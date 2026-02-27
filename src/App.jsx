@@ -38,7 +38,7 @@ function App() {
       {!submitted ? (
         <div style={styles.heroSection}>
           <div style={styles.heroContent}>
-            <h1 style={styles.title}>Welcome to NSS Family</h1>
+            <h1 style={styles.title}>Welcome to Team NSS </h1>
             <p style={styles.motto}>Not Me, But You.</p>
 
             <input
