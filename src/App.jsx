@@ -67,7 +67,8 @@ function App() {
 
           <div style={styles.overlayText}>
             <h1 style={styles.welcomeTitle}>
-              Welcome,{" "}
+              Welcome,
+              <br />
               <span style={styles.nameHighlight}>{name}</span>
             </h1>
 
@@ -80,8 +81,12 @@ function App() {
               <span style={styles.movement}> it is impact.</span>
             </p>
 
-            <h2 style={styles.welcomeMotto}>
+            <h3 style={styles.welcomeMotto}>
               Once a volunteer, always a volunteer.
+            </h3>
+
+            <h2 style={styles.bigImpact}>
+              Your small step can make a big impact
             </h2>
           </div>
         </div>
@@ -193,34 +198,34 @@ const styles = {
     maxWidth: "750px",
     marginLeft: "8%",
     marginTop: "14%",
-    color: "#f2f2f2",
   },
 
   welcomeTitle: {
-    fontSize: "clamp(48px, 6vw, 76px)",
+    fontSize: "clamp(52px, 6vw, 82px)",
     fontWeight: "900",
     marginBottom: "28px",
-    lineHeight: "1.1",
+    lineHeight: "1.05",
     letterSpacing: "1px",
-    textShadow: "0 10px 40px rgba(0,0,0,0.8)",
+    color: "#f8f5f0",
+    textShadow: "0 15px 50px rgba(0,0,0,0.85)",
   },
 
   nameHighlight: {
-    color: "#e6d3a3",
-    textShadow: "0 0 30px rgba(230,211,163,0.6)",
+    color: "#e8d8b0",
+    textShadow: "0 0 35px rgba(232,216,176,0.5)",
   },
 
   welcomeText: {
     fontSize: "clamp(20px, 2.5vw, 26px)",
     lineHeight: "1.8",
     marginBottom: "18px",
-    color: "#e5e5e5",
-    textShadow: "0 6px 25px rgba(0,0,0,0.7)",
+    color: "#d6dbe0",
+    textShadow: "0 6px 25px rgba(0,0,0,0.75)",
   },
 
   movement: {
-    fontWeight: "bold",
-    color: "#cfd8dc",
+    fontWeight: "700",
+    color: "#f1f3f4",
   },
 
   welcomeMotto: {
@@ -228,8 +233,20 @@ const styles = {
     marginTop: "30px",
     fontWeight: "600",
     letterSpacing: "1px",
-    color: "#f5f5f5",
-    textShadow: "0 6px 30px rgba(0,0,0,0.8)",
+    color: "#eaeaea",
+    textShadow: "0 8px 35px rgba(0,0,0,0.85)",
+  },
+
+  bigImpact: {
+    fontSize: "clamp(28px, 3.5vw, 42px)",
+    marginTop: "35px",
+    fontWeight: "900",
+    lineHeight: "1.4",
+    letterSpacing: "0.5px",
+    background: "linear-gradient(45deg, #ffffff, #e8d8b0)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    textShadow: "0 12px 45px rgba(0,0,0,0.9)",
   },
 };
 
